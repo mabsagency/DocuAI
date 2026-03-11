@@ -4,8 +4,8 @@ import Webcam from "react-webcam";
 import { useCallback, useMemo, useRef, useState, ChangeEvent } from "react";
 
 // avoid strict module mismatch for pdfjs-dist TS declarations
-import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf";
-(pdfjsLib as any).GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
+import { getDocument, GlobalWorkerOptions } from "pdfjs-dist/legacy/build/pdf";
+GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
 
 function base64ToUint8Array(base64: string) {
   const binary = atob(base64);
@@ -222,7 +222,7 @@ export default function DocumentScanner() {
     const reader = new FileReader();
     reader.onload = async () => {
       const raw = reader.result as ArrayBuffer;
-      const pdf = await pdfjsLib.getDocument({ data: raw }).promise;
+      const pdf = await getDocument({ data: raw }).promise;
       const pages: string[] = [];
 
       for (let i = 1; i <= pdf.numPages; i++) {
