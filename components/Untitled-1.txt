@@ -1,0 +1,5 @@
+NEXT_PUBLIC_SUPABASE_URL=https://fkkzcsqajsonoybycdom.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_fUu9Nv_WZr0MgLz1hlYbfg_uIQDGb2s
+SUPABASE_SERVICE_ROLE_KEY=sb_service_role_...     # from dashboard
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=une-cle-secrete-longue

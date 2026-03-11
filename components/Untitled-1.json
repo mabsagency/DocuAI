@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "next.config.js", "use": "@vercel/next" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/$1" }
+  ],
+  "env": {
+    "NEXTAUTH_SECRET": "xxxxxxxxxxxxxxxxxxxxxxxx",
+    "DATABASE_URL": "postgresql://user:pass@host:5432/docuai",
+    "NEXTAUTH_URL": "http://localhost:3000",
+    "SENTRY_DSN": "...",
+    "S3_ENDPOINT": "https://minio.example.com",
+    "S3_ACCESS_KEY": "...",
+    "S3_SECRET_KEY": "...",
+    "S3_BUCKET": "docuai"
+  }
+}
